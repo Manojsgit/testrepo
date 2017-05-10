@@ -1,0 +1,63 @@
+"set relativenumber
+set cindent
+syntax on
+
+"leader key setup
+let mapleader=","
+nnoremap <leader>bl :ls<cr>
+nnoremap <leader>tg :!ctags -R .<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprevious<cr>
+nnoremap <leader>bd :bdelete<cr>
+nnoremap <leader>od :e .<cr>
+nnoremap <leader>vs :vsplit <cr>
+nnoremap <leader>hs :hsplit <cr>
+nnoremap <leader>w <C-w>w
+inoremap <leader>, <C-x><C-o>
+
+"you complete me configurations
+let g:ycm_confirm_extra_conf=0
+"vim_aciidoc configuration 
+let g:vim_asciidoc_folding_disabled=1
+
+
+
+"vim android
+let g:android_sdk_path="/home/tony/android_sdk/tools/"
+
+"vim airline
+set encoding=utf-8
+let g:airline#extensions#tabline#enabled = 1
+set t_Co=256
+set laststatus=2
+
+"other stuff
+set nocompatible
+filetype off
+
+"javacomplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_LibsPath="/home/tony/android_sdk/platforms/android-25/android.jar"
+let $CLASSPATH="/home/tony/android_sdk/platforms/android-25/android.jar"
+
+"vundle packages
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+"Let Vundle manage vundle itself
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mjakl/vim-asciidoc'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'hsanson/vim-android'
+Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+call vundle#end() 
+
+
+filetype plugin indent on
